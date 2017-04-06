@@ -9,6 +9,8 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Consumer;
 
+import static android.os.Build.VERSION_CODES.N;
+
 /**
  * Created by Administrator on 2017/4/6 0006.
  */
@@ -16,26 +18,35 @@ import io.reactivex.functions.Consumer;
 public class RxToast {
     @SuppressLint("StaticFieldLeak")
     private static Context mContext;
-    public static void init(Context context){
-        mContext=context;
+
+    public static void init(Context context) {
+        mContext = context;
     }
 
-    public static void show(String msg){
+    public static void show(String msg) {
         Observable.just(msg).observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<String>() {
                     @Override
                     public void accept(@NonNull String s) throws Exception {
-                        Toast.makeText(mContext, s, Toast.LENGTH_SHORT).show();
+                        if (mContext == null) {
+                            throw new NullPointerException("Toast的上下文为空");
+                        } else {
+                            Toast.makeText(mContext, s, Toast.LENGTH_SHORT).show();
+                        }
                     }
                 });
     }
 
-    public static void show(Integer stringId){
+    public static void show(Integer stringId) {
         Observable.just(stringId).observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<Integer>() {
                     @Override
                     public void accept(@NonNull Integer integer) throws Exception {
-                        Toast.makeText(mContext, integer, Toast.LENGTH_SHORT).show();
+                        if (mContext == null) {
+                            throw new NullPointerException("Toast的上下文为空");
+                        } else {
+                            Toast.makeText(mContext, integer, Toast.LENGTH_SHORT).show();
+                        }
                     }
                 });
     }
