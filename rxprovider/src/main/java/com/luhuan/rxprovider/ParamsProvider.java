@@ -1,5 +1,7 @@
 package com.luhuan.rxprovider;
 
+import android.support.annotation.NonNull;
+
 import java.util.HashMap;
 import java.util.Iterator;
 
@@ -8,7 +10,7 @@ import java.util.Iterator;
  */
 
 public class ParamsProvider {
-    public static String joint(HashMap<String,String> params){
+    public static String joint(@NonNull HashMap<String,String> params){
         Iterator<String> iterator=params.keySet().iterator();
         StringBuilder stringBuilder=new StringBuilder();
         while (iterator.hasNext()){

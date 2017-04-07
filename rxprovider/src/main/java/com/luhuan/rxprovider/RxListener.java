@@ -1,5 +1,6 @@
 package com.luhuan.rxprovider;
 
+import android.support.annotation.NonNull;
 import android.view.View;
 
 import com.jakewharton.rxbinding2.view.RxView;
@@ -13,7 +14,7 @@ import io.reactivex.Observable;
  */
 
 public class RxListener {
-    public static Observable<Object> click(View view){
+    public static Observable<Object> click(@NonNull View view){
         return RxView.clicks(view).throttleFirst(1, TimeUnit.SECONDS);
     }
 }

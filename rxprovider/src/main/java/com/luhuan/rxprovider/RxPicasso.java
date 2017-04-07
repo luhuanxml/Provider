@@ -3,11 +3,10 @@ package com.luhuan.rxprovider;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.annotation.DrawableRes;
+import android.support.annotation.NonNull;
 
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.RequestCreator;
-
-import io.reactivex.annotations.NonNull;
 
 /**
  * Created by Administrator on 2017/4/6 0006.
@@ -24,10 +23,18 @@ public class RxPicasso {
     }
 
     public static RequestCreator load(@NonNull String url, @DrawableRes Integer drawableId){
-        return Picasso.with(mContext).load(url).placeholder(drawableId).error(drawableId);
+        if (mContext == null) {
+            throw new NullPointerException("picasso的上下文为空");
+        }else {
+            return Picasso.with(mContext).load(url).placeholder(drawableId).error(drawableId);
+        }
     }
 
     public static RequestCreator load(@NonNull String url){
-        return Picasso.with(mContext).load(url).placeholder(mdrawableId).error(mdrawableId);
+        if (mContext == null) {
+            throw new NullPointerException("picasso的上下文为空");
+        }else {
+            return Picasso.with(mContext).load(url).placeholder(mdrawableId).error(mdrawableId);
+        }
     }
 }

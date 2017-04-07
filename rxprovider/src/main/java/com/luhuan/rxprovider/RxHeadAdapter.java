@@ -25,16 +25,21 @@ public abstract class RxHeadAdapter<T> extends RecyclerView.Adapter<HeadHolder<T
     public static final int NORMAL = 3;
     public static final int FOOT = 4;
 
+    private List<T> datas;
+
     private OnItemClickLitener<T> onItemClickListener;
 
     public void setOnItemClickListener(OnItemClickLitener<T> onItemClickListener) {
         this.onItemClickListener = onItemClickListener;
     }
 
-    private List<T> datas;
-
     public RxHeadAdapter(List<T> datas) {
         this.datas = datas;
+    }
+
+    public void refresh(List<T> datas){
+        this.datas=datas;
+        notifyDataSetChanged();
     }
 
     public void addFisrtHead(View firstHead) {

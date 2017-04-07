@@ -28,7 +28,7 @@ public class Encryption {
         return urlCode;
     }
 
-    public static String getMD5(String normalString) {
+    public static String getMD5(@NonNull String normalString) {
         MessageDigest messageDigest = null;
         try {
             messageDigest = MessageDigest.getInstance("MD5");

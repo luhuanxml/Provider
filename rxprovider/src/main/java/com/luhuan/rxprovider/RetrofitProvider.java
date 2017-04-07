@@ -1,5 +1,7 @@
 package com.luhuan.rxprovider;
 
+import android.support.annotation.NonNull;
+
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
@@ -17,7 +19,7 @@ public class RetrofitProvider {
         
     }
 
-    public static Retrofit getInstance(String baseUrl){
+    public static Retrofit getInstance(@NonNull String baseUrl){
         ENDPOINT=baseUrl;
         return SingletonHolder.INSTANCE;
     }

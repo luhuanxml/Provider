@@ -2,12 +2,14 @@ package com.luhuan.rxprovider;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.support.annotation.StringRes;
 import android.widget.Toast;
 
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 import static android.os.Build.VERSION_CODES.N;
 
@@ -23,7 +25,7 @@ public class RxToast {
         mContext = context;
     }
 
-    public static void show(String msg) {
+    public static void show(@NonNull String msg) {
         Observable.just(msg).observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<String>() {
                     @Override
@@ -37,7 +39,7 @@ public class RxToast {
                 });
     }
 
-    public static void show(Integer stringId) {
+    public static void show(@StringRes Integer stringId) {
         Observable.just(stringId).observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<Integer>() {
                     @Override

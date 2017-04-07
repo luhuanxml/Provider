@@ -6,7 +6,6 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.ImageView;
 
-import com.luhuan.rxprovider.HeadRecyclerView;
 import com.luhuan.rxprovider.RxHeadAdapter;
 import com.luhuan.rxprovider.RxListener;
 import com.luhuan.rxprovider.RxToast;
@@ -22,7 +21,7 @@ import static com.luhuan.rxprovider.RxHeadAdapter.HEAD_ONE;
 import static com.luhuan.rxprovider.RxHeadAdapter.HEAD_TWO;
 
 public class MainActivity extends Activity {
-    HeadRecyclerView recyclerView;
+    RecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +31,7 @@ public class MainActivity extends Activity {
         for (int i = 0; i <50; i++) {
             datas.add(i+"");
         }
-        recyclerView= (HeadRecyclerView) findViewById(R.id.recyclerview);
+        recyclerView= (RecyclerView) findViewById(R.id.recyclerview);
         final MyAdapter myAdapter=new MyAdapter(datas);
         ImageView head1=new ImageView(this);
         head1.setImageResource(R.mipmap.ic_launcher);
@@ -64,6 +63,15 @@ public class MainActivity extends Activity {
         final GridLayoutManager manager=new GridLayoutManager(this,2);
         recyclerView.setLayoutManager(manager);
         recyclerView.setAdapter(myAdapter);
+        manager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                return myAdapter.getItemViewType(position)==HEAD_ONE
+                        ||myAdapter.getItemViewType(position)==HEAD_TWO
+                        ||myAdapter.getItemViewType(position)==FOOT
+                        ?manager.getSpanCount():1;
+            }
+        });
         myAdapter.setOnItemClickListener(new RxHeadAdapter.OnItemClickLitener<String>() {
 
             @Override
