@@ -40,7 +40,7 @@ public class MyAdapter extends RxHeadAdapter<String> {
         return R.layout.item_adpter;
     }
 
-    private class MyHolder extends HeadHolder<String>{
+    class MyHolder extends HeadHolder<String>{
         TextView textView;
         MyHolder(View itemView) {
             super(itemView);
