@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import com.luhuan.rxprovider.RxCountDown;
 import com.luhuan.rxprovider.RxToast;
-import com.luhuan.rxprovider.compresshelper.CompressHelper;
+import com.luhuan.rxprovider.CompressHelper;
 
 import java.io.File;
 

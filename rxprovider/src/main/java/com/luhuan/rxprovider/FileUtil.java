@@ -1,4 +1,4 @@
-package com.luhuan.rxprovider.compresshelper;
+package com.luhuan.rxprovider;
 
 import android.content.Context;
 import android.database.Cursor;

@@ -1,4 +1,4 @@
-package com.luhuan.rxprovider.compresshelper;
+package com.luhuan.rxprovider;
 
 /**
  * 字符串相关工具类
