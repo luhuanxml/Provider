@@ -58,8 +58,8 @@ public class MainActivity extends Activity {
                 RxToast.show("foot");
             }
         });
-        myAdapter.addHeadOne(head1);
-        myAdapter.addHeadTwo(head2);
+        myAdapter.addFisrtHead(head1);
+        myAdapter.addSecondHead(head2);
         myAdapter.addFootView(foot);
         final GridLayoutManager manager=new GridLayoutManager(this,2);
         recyclerView.setLayoutManager(manager);

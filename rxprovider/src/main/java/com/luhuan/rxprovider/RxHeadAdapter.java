@@ -12,19 +12,20 @@ import io.reactivex.functions.Consumer;
 
 /**
  * Created by Administrator on 2017/4/7 0007.
+ * 添加头部和尾部的recyclerAdapter
  */
 
 public abstract class RxHeadAdapter<T> extends RecyclerView.Adapter<HeadHolder<T>> {
 
-    protected View headView1;
-    protected View headView2;
+    protected View firstHeadView;
+    protected View secondHeadView;
     protected View footView;
     public static final int HEAD_ONE = 1;
     public static final int HEAD_TWO = 2;
     public static final int NORMAL = 3;
     public static final int FOOT = 4;
 
-    protected OnItemClickLitener<T> onItemClickListener;
+    private OnItemClickLitener<T> onItemClickListener;
 
     public void setOnItemClickListener(OnItemClickLitener<T> onItemClickListener) {
         this.onItemClickListener = onItemClickListener;
@@ -36,31 +37,31 @@ public abstract class RxHeadAdapter<T> extends RecyclerView.Adapter<HeadHolder<T
         this.datas = datas;
     }
 
-    public void addHeadOne(View headView) {
-        this.headView1 = headView;
+    public void addFisrtHead(View firstHead) {
+        firstHeadView = firstHead;
     }
 
-    public void addHeadTwo(View headView) {
-        this.headView2 = headView;
+    public void addSecondHead(View secondHead) {
+        secondHeadView = secondHead;
     }
 
     public void addFootView(View footView) {
         this.footView = footView;
     }
 
-    public int getHeadOneCount() {
-        return headView1 == null ? 0 : 1;
+    private int getHeadOneCount() {
+        return firstHeadView == null ? 0 : 1;
     }
 
-    public int getHeadTwoCount() {
-        return headView2 == null ? 0 : 1;
+    private int getHeadTwoCount() {
+        return secondHeadView == null ? 0 : 1;
     }
 
-    public int getTotolHeadCount() {
+    private int getTotolHeadCount() {
         return getHeadOneCount() + getHeadTwoCount();
     }
 
-    public int getFootCount() {
+    private int getFootCount() {
         return footView == null ? 0 : 1;
     }
 

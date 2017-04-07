@@ -22,10 +22,10 @@ public class MyAdapter extends RxHeadAdapter<String> {
     @Override
     protected HeadHolder<String> getHolder(ViewGroup parent, int viewType) {
         if (viewType == HEAD_ONE) {
-            return new MyHolder(headView1);
+            return new MyHolder(firstHeadView);
         }
         if (viewType == HEAD_TWO) {
-            return new MyHolder(headView2);
+            return new MyHolder(secondHeadView);
         }
         if (viewType == FOOT) {
             return new MyHolder(footView);
@@ -44,8 +44,8 @@ public class MyAdapter extends RxHeadAdapter<String> {
         TextView textView;
         MyHolder(View itemView) {
             super(itemView);
-            if (itemView == headView1) return;
-            if (itemView == headView2) return;
+            if (itemView == firstHeadView) return;
+            if (itemView == secondHeadView) return;
             if (itemView == footView) return;
             textView= (TextView) itemView.findViewById(R.id.item);
         }
