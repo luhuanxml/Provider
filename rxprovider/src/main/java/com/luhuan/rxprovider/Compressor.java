@@ -1,5 +1,6 @@
 package com.luhuan.rxprovider;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -18,8 +19,9 @@ import io.reactivex.ObservableSource;
  * Date: 2017-03-08  9:03
  */
 
-public class CompressHelper {
-    private static volatile CompressHelper INSTANCE;
+public class Compressor {
+    @SuppressLint("StaticFieldLeak")
+    private static volatile Compressor INSTANCE;
     private Context context;
     /**
      * 最大宽度，默认为720
@@ -53,16 +55,16 @@ public class CompressHelper {
     private String fileName;
 
 
-    private CompressHelper(Context context) {
+    private Compressor(Context context) {
         this.context = context;
         destinationDirectoryPath = context.getCacheDir().getPath() + File.pathSeparator + FileUtil.FILES_PATH;
     }
 
-    public static CompressHelper getDefault(Context context) {
+    public static Compressor getDefault(Context context) {
         if (INSTANCE == null) {
-            synchronized (CompressHelper.class) {
+            synchronized (Compressor.class) {
                 if (INSTANCE == null) {
-                    INSTANCE = new CompressHelper(context);
+                    INSTANCE = new Compressor(context);
                 }
             }
         }
@@ -114,10 +116,10 @@ public class CompressHelper {
      * 采用建造者模式，设置Builder
      */
     public static class Builder {
-        private CompressHelper mCompressHelper;
+        private Compressor mCompressor;
 
         public Builder(Context context) {
-            mCompressHelper = new CompressHelper(context);
+            mCompressor = new Compressor(context);
         }
 
         /**
@@ -126,7 +128,7 @@ public class CompressHelper {
          * @param maxWidth 最大宽度
          */
         public Builder setMaxWidth(float maxWidth) {
-            mCompressHelper.maxWidth = maxWidth;
+            mCompressor.maxWidth = maxWidth;
             return this;
         }
 
@@ -136,7 +138,7 @@ public class CompressHelper {
          * @param maxHeight 最大高度
          */
         public Builder setMaxHeight(float maxHeight) {
-            mCompressHelper.maxHeight = maxHeight;
+            mCompressor.maxHeight = maxHeight;
             return this;
         }
 
@@ -144,7 +146,7 @@ public class CompressHelper {
          * 设置压缩的后缀格式
          */
         public Builder setCompressFormat(Bitmap.CompressFormat compressFormat) {
-            mCompressHelper.compressFormat = compressFormat;
+            mCompressor.compressFormat = compressFormat;
             return this;
         }
 
@@ -152,7 +154,7 @@ public class CompressHelper {
          * 设置Bitmap的参数
          */
         public Builder setBitmapConfig(Bitmap.Config bitmapConfig) {
-            mCompressHelper.bitmapConfig = bitmapConfig;
+            mCompressor.bitmapConfig = bitmapConfig;
             return this;
         }
 
@@ -162,7 +164,7 @@ public class CompressHelper {
          * @param quality 压缩质量，[0,100]
          */
         public Builder setQuality(int quality) {
-            mCompressHelper.quality = quality;
+            mCompressor.quality = quality;
             return this;
         }
 
@@ -172,12 +174,12 @@ public class CompressHelper {
          * @param destinationDirectoryPath 目的路径
          */
         public Builder setDestinationDirectoryPath(String destinationDirectoryPath) {
-            mCompressHelper.destinationDirectoryPath = destinationDirectoryPath;
+            mCompressor.destinationDirectoryPath = destinationDirectoryPath;
             return this;
         }
 
         public Builder setFileNamePrefix(String prefix) {
-            mCompressHelper.fileNamePrefix = prefix;
+            mCompressor.fileNamePrefix = prefix;
             return this;
         }
 
@@ -187,12 +189,12 @@ public class CompressHelper {
          * @param fileName 文件名
          */
         public Builder setFileName(String fileName) {
-            mCompressHelper.fileName = fileName;
+            mCompressor.fileName = fileName;
             return this;
         }
 
-        public CompressHelper build() {
-            return mCompressHelper;
+        public Compressor build() {
+            return mCompressor;
         }
     }
 }
