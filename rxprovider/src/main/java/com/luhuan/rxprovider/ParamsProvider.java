@@ -10,12 +10,12 @@ import java.util.Iterator;
 public class ParamsProvider {
     public static String joint(HashMap<String,String> params){
         Iterator<String> iterator=params.keySet().iterator();
-        StringBuffer stringBuffer=new StringBuffer();
+        StringBuilder stringBuilder=new StringBuilder();
         while (iterator.hasNext()){
             String key=iterator.next();
             String value=params.get(key);
-            stringBuffer.append("&").append(key).append("=").append(value);
+            stringBuilder.append("&").append(key).append("=").append(value);
         }
-        return stringBuffer.toString();
+        return stringBuilder.toString();
     }
 }
