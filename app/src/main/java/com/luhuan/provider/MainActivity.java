@@ -63,15 +63,6 @@ public class MainActivity extends Activity {
         final GridLayoutManager manager=new GridLayoutManager(this,2);
         recyclerView.setLayoutManager(manager);
         recyclerView.setAdapter(myAdapter);
-        manager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
-            @Override
-            public int getSpanSize(int position) {
-                return myAdapter.getItemViewType(position)==HEAD_ONE
-                        ||myAdapter.getItemViewType(position)==HEAD_TWO
-                        ||myAdapter.getItemViewType(position)==FOOT
-                        ?manager.getSpanCount():1;
-            }
-        });
         myAdapter.setOnItemClickListener(new RxHeadAdapter.OnItemClickLitener<String>() {
 
             @Override
