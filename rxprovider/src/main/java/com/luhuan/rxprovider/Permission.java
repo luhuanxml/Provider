@@ -5,6 +5,8 @@ import android.app.Activity;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import io.reactivex.Observable;
+import io.reactivex.ObservableSource;
+import io.reactivex.ObservableTransformer;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Predicate;
 
@@ -40,5 +42,9 @@ public class Permission {
                 return true;
             }
         });
+    }
+
+    public <T> ObservableTransformer<T,Boolean> enSure(String... permision){
+        return rxPermissions.ensure(permision);
     }
 }
