@@ -6,6 +6,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
+import android.view.View;
 
 import static com.luhuan.rxprovider.RxHeadAdapter.FOOT;
 import static com.luhuan.rxprovider.RxHeadAdapter.HEAD_ONE;
@@ -28,7 +29,6 @@ public class HeadRecyclerView extends RecyclerView {
     public HeadRecyclerView(Context context, @Nullable AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
-
     @Override
     public void setAdapter(final Adapter adapter) {
         super.setAdapter(adapter);
