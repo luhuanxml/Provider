@@ -19,10 +19,10 @@ public abstract class RxHeadAdapter<T> extends RecyclerView.Adapter<HeadHolder<T
     protected View headView1;
     protected View headView2;
     protected View footView;
-    protected static final int HEAD_ONE = 1;
-    protected static final int HEAD_TWO = 2;
-    protected static final int NORMAL = 3;
-    protected static final int FOOT = 4;
+    public static final int HEAD_ONE = 1;
+    public static final int HEAD_TWO = 2;
+    public static final int NORMAL = 3;
+    public static final int FOOT = 4;
 
     protected OnItemClickLitener<T> onItemClickListener;
 

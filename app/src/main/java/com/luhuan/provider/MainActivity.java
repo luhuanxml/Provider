@@ -2,7 +2,7 @@ package com.luhuan.provider;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.ImageView;
 
@@ -16,6 +16,10 @@ import java.util.List;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Consumer;
 
+import static com.luhuan.rxprovider.RxHeadAdapter.FOOT;
+import static com.luhuan.rxprovider.RxHeadAdapter.HEAD_ONE;
+import static com.luhuan.rxprovider.RxHeadAdapter.HEAD_TWO;
+
 public class MainActivity extends Activity {
     RecyclerView recyclerView;
     @Override
@@ -28,7 +32,7 @@ public class MainActivity extends Activity {
             datas.add(i+"");
         }
         recyclerView= (RecyclerView) findViewById(R.id.recyclerview);
-        MyAdapter myAdapter=new MyAdapter(datas);
+        final MyAdapter myAdapter=new MyAdapter(datas);
         ImageView head1=new ImageView(this);
         head1.setImageResource(R.mipmap.ic_launcher);
         RxListener.click(head1).subscribe(new Consumer<Object>() {
@@ -56,9 +60,18 @@ public class MainActivity extends Activity {
         myAdapter.addHeadOne(head1);
         myAdapter.addHeadTwo(head2);
         myAdapter.addFootView(foot);
-        LinearLayoutManager manager=new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
+        final GridLayoutManager manager=new GridLayoutManager(this,2);
         recyclerView.setLayoutManager(manager);
         recyclerView.setAdapter(myAdapter);
+        manager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                return myAdapter.getItemViewType(position)==HEAD_ONE
+                        ||myAdapter.getItemViewType(position)==HEAD_TWO
+                        ||myAdapter.getItemViewType(position)==FOOT
+                        ?manager.getSpanCount():1;
+            }
+        });
         myAdapter.setOnItemClickListener(new RxHeadAdapter.OnItemClickLitener<String>() {
 
             @Override
