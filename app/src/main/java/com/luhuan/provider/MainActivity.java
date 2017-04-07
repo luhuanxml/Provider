@@ -6,6 +6,9 @@ import android.widget.TextView;
 
 import com.luhuan.rxprovider.RxCountDown;
 import com.luhuan.rxprovider.RxToast;
+import com.luhuan.rxprovider.compresshelper.CompressHelper;
+
+import java.io.File;
 
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Action;
@@ -24,6 +27,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
+        CompressHelper.getDefault(this).compressToFile(new File(""));
         RxCountDown.countDown(10).subscribe(new Consumer<Integer>() {
             @Override
             public void accept(@NonNull Integer integer) throws Exception {
