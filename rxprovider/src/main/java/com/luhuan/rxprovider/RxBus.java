@@ -23,7 +23,7 @@ public class RxBus {
         mBus.onNext(object);
     }
 
-    public <T>Observable<T> tObservable(Class<T> tClass){
+    public <T>Observable<T> toObservable(Class<T> tClass){
         return mBus.ofType(tClass);
     }
 
