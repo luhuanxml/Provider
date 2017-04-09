@@ -5,6 +5,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.luhuan.provider.MainActivity">
+    <com.luhuan.rxprovider.customview.banner.Banner
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+
+    </com.luhuan.rxprovider.customview.banner.Banner>
     <com.luhuan.rxprovider.customview.recycler.XRecyclerView
         android:id="@+id/recycler"
         android:layout_width="match_parent"

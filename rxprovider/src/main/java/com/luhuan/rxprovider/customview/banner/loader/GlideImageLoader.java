@@ -1,0 +1,37 @@
+package com.luhuan.rxprovider.customview.banner.loader;
+
+import android.content.Context;
+import android.widget.ImageView;
+
+import com.luhuan.rxprovider.R;
+import com.luhuan.rxprovider.RxPicasso;
+import com.squareup.picasso.Picasso;
+
+/**
+ * Created by Administrator on 2017/3/10 0010.
+ */
+
+public class GlideImageLoader extends ImageLoader {
+    @Override
+    public void displayImage(Context context, Object path, ImageView imageView) {
+        /**
+         注意：
+         1.图片加载器由自己选择，这里不限制，只是提供几种使用方法
+         2.返回的图片路径为Object类型，由于不能确定你到底使用的那种图片加载器，
+         传输的到的是什么格式，那么这种就使用Object接收和返回，你只需要强转成你传输的类型就行，
+         切记不要胡乱强转！
+         */
+
+        //Picasso 加载图片简单用法
+        RxPicasso.load((String) path).into(imageView);
+    }
+
+    @Override
+    public ImageView createImageView(Context context) {
+        ImageView imageView = new ImageView(context);
+        imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+        return imageView;
+    }
+
+
+}

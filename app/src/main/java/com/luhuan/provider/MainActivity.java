@@ -7,6 +7,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.luhuan.rxprovider.RxPicasso;
+import com.luhuan.rxprovider.customview.banner.Banner;
+import com.luhuan.rxprovider.customview.banner.Transformer;
+import com.luhuan.rxprovider.customview.banner.loader.GlideImageLoader;
 import com.luhuan.rxprovider.customview.recycler.ArrowRefreshHeader;
 import com.luhuan.rxprovider.customview.recycler.ProgressStyle;
 import com.luhuan.rxprovider.customview.recycler.RxAdapter;
@@ -18,10 +22,21 @@ import java.util.List;
 
 public class MainActivity extends Activity {
     XRecyclerView recyclerView;
+    Banner banner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        RxPicasso.init(this,R.mipmap.ic_launcher);
+        banner= (Banner) findViewById(R.id.banner);
+        List<String> list=new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
+            list.add("http://pic6.huitu.com/res/20130116/84481_20130116142820494200_1.jpg");
+        }
+        banner.setImages(list)
+                .setBannerAnimation(Transformer.Default)
+                .setImageLoader(new GlideImageLoader())
+                .isAutoPlay(true).start();
         recyclerView= (XRecyclerView) findViewById(R.id.recycler);
         List<String> ss=new ArrayList<>();
         for (int i = 0; i < 50; i++) {
