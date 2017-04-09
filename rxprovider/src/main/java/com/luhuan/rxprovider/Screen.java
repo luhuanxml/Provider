@@ -1,4 +1,4 @@
-package com.luhuan.rxprovider.customview;
+package com.luhuan.rxprovider;
 
 import android.app.Activity;
 import android.content.Context;

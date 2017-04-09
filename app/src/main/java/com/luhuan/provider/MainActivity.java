@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.luhuan.rxprovider.Resolution;
 import com.luhuan.rxprovider.RxPicasso;
-import com.luhuan.rxprovider.customview.Screen;
+import com.luhuan.rxprovider.Screen;
 import com.luhuan.rxprovider.customview.banner.Banner;
 import com.luhuan.rxprovider.customview.banner.Transformer;
 import com.luhuan.rxprovider.customview.banner.loader.GlideImageLoader;
