@@ -3,6 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.luhuan.provider.MainActivity">
+    <com.luhuan.rxprovider.recycler.XRecyclerView
+        android:id="@+id/recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+    </com.luhuan.rxprovider.recycler.XRecyclerView>
 </LinearLayout>
