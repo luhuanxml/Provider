@@ -8,7 +8,6 @@ import android.util.Log;
 import android.view.View;
 
 /**
- * ############################
  * Created by luhuan on 2017/3/30 0030.
  * 只针对item类型单一的情况  实现头部炫富停靠
  */
