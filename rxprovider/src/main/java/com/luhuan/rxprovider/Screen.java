@@ -9,6 +9,7 @@ import android.view.WindowManager;
  */
 
 public class Screen {
+
     public static int getScreenWidth(Activity currentActivity){
         WindowManager wm = currentActivity.getWindowManager();
         Point size = new Point();
