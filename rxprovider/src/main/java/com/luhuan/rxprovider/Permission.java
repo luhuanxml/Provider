@@ -12,6 +12,7 @@ import io.reactivex.functions.Predicate;
 
 /**
  * Created by Administrator on 2017/4/6 0006.
+ * 6.0动态权限申请
  */
 
 public class Permission {

@@ -9,6 +9,7 @@ import io.reactivex.functions.Function;
 
 /**
  * Created by Administrator on 2017/4/6 0006.
+ * 倒计时
  */
 
 public class RxCountDown {

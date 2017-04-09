@@ -9,6 +9,7 @@ import okhttp3.RequestBody;
 
 /**
  * Created by Administrator on 2017/4/6 0006.
+ * MultipartBody.Part提供者
  */
 
 public class PartProvider {

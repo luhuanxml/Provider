@@ -4,10 +4,6 @@ import io.reactivex.Observable;
 import io.reactivex.subjects.PublishSubject;
 import io.reactivex.subjects.Subject;
 
-/**
- * Created by Administrator on 2017/4/6 0006.
- */
-
 public class RxBus {
     private final Subject<Object> mBus;
 

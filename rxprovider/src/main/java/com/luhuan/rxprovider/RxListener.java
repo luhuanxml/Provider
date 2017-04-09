@@ -11,6 +11,7 @@ import io.reactivex.Observable;
 
 /**
  * Created by Administrator on 2017/4/6 0006.
+ * RxView点击事件封装，防抖动时间为1秒
  */
 
 public class RxListener {

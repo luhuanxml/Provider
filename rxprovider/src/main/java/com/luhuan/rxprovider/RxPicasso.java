@@ -10,12 +10,13 @@ import com.squareup.picasso.RequestCreator;
 
 /**
  * Created by Administrator on 2017/4/6 0006.
+ * 封装Picasso
  */
 
 public class RxPicasso {
     @SuppressLint("StaticFieldLeak")
     private static Context mContext;
-    static Integer mdrawableId;
+    private static Integer mdrawableId;
 
     public static void init(Context context, @DrawableRes Integer drawableId){
         mContext=context;

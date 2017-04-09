@@ -4,6 +4,8 @@ import android.content.Context;
 
 /**
  * Created by Administrator on 2017/4/6 0006.
+ * dp转px
+ * px转dp
  */
 
 public class Resolution {
