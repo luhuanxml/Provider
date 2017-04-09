@@ -25,10 +25,10 @@ public class RxTransform {
         };
     }
 
-    public static <T>SingleTransformer<T,T> applyNM(){
-        return new SingleTransformer<T, T>() {
+    public static <T>ObservableTransformer<T,T> applyNM(){
+        return new ObservableTransformer<T,T>() {
             @Override
-            public SingleSource<T> apply(@NonNull Single<T> upstream) {
+            public ObservableSource<T> apply(@NonNull Observable<T> upstream) {
                 return upstream.subscribeOn(Schedulers.newThread())
                         .observeOn(AndroidSchedulers.mainThread());
             }

@@ -3,16 +3,15 @@ package com.luhuan.provider;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.luhuan.rxprovider.RxAdapter;
-import com.luhuan.rxprovider.RxViewHolder;
-import com.luhuan.rxprovider.recycler.ArrowRefreshHeader;
-import com.luhuan.rxprovider.recycler.ProgressStyle;
-import com.luhuan.rxprovider.recycler.XRecyclerView;
+import com.luhuan.rxprovider.customview.recycler.ArrowRefreshHeader;
+import com.luhuan.rxprovider.customview.recycler.ProgressStyle;
+import com.luhuan.rxprovider.customview.recycler.RxAdapter;
+import com.luhuan.rxprovider.customview.recycler.RxViewHolder;
+import com.luhuan.rxprovider.customview.recycler.XRecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
