@@ -6,6 +6,7 @@ import android.view.WindowManager;
 
 /**
  * Created by lh on 2017/4/9.
+ * 获取屏幕宽高
  */
 
 public class Screen {
