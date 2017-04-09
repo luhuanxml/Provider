@@ -1,7 +1,6 @@
 package com.luhuan.rxprovider;
 
 import android.app.Activity;
-import android.content.Context;
 import android.graphics.Point;
 import android.view.WindowManager;
 
@@ -22,6 +21,5 @@ public class Screen {
         Point size = new Point();
         wm.getDefaultDisplay().getSize(size);
         return size.y;
-
     }
 }
