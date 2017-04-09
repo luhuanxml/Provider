@@ -33,6 +33,7 @@
 ### Creator 反射泛型对象
 ### RxPicasso  统一加载中和加载失败时替代的图片，返回RequestCreator对象
 ### ParamsProvider 将map集合转换成&key=value形式字符串。用于webview的url拼接
+### Screen 获取屏幕宽和高
 
 ### 加入了一些三方控件 badge  banner circle  flowLayout  xrecyclerview
 
