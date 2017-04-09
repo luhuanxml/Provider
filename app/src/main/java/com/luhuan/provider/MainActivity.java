@@ -3,11 +3,14 @@ package com.luhuan.provider;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.luhuan.rxprovider.Resolution;
 import com.luhuan.rxprovider.RxPicasso;
+import com.luhuan.rxprovider.customview.Screen;
 import com.luhuan.rxprovider.customview.banner.Banner;
 import com.luhuan.rxprovider.customview.banner.Transformer;
 import com.luhuan.rxprovider.customview.banner.loader.GlideImageLoader;
@@ -23,10 +26,15 @@ import java.util.List;
 public class MainActivity extends Activity {
     XRecyclerView recyclerView;
     Banner banner;
+    private static final String TAG = "MainActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Log.d(TAG, "width: "+ Screen.getScreenWidth(this));
+        Log.d(TAG, "height: "+Screen.getScreenHeight(this));
+        Log.d(TAG, "width-dp: "+ Resolution.pxToDp(this,Screen.getScreenWidth(this)));
+        Log.d(TAG, "height-dp: "+ Resolution.pxToDp(this,Screen.getScreenHeight(this)));
         RxPicasso.init(this,R.mipmap.ic_launcher);
         banner= (Banner) findViewById(R.id.banner);
         List<String> list=new ArrayList<>();
