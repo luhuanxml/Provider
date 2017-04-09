@@ -3,9 +3,7 @@ package com.luhuan.rxprovider.customview.banner.loader;
 import android.content.Context;
 import android.widget.ImageView;
 
-import com.luhuan.rxprovider.R;
 import com.luhuan.rxprovider.RxPicasso;
-import com.squareup.picasso.Picasso;
 
 /**
  * Created by Administrator on 2017/3/10 0010.

@@ -1,25 +1,4 @@
 package com.luhuan.rxprovider.customview.badge;
-
-/*
- * BadgeView.java
- * BadgeView
- *
- * Copyright (c) 2012 Stefan Jauker.
- * https://github.com/kodex83/BadgeView
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
@@ -111,11 +90,6 @@ public class BadgeView extends TextView {
         setText(getText());
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see android.widget.TextView#setText(java.lang.CharSequence, android.widget.TextView.BufferType)
-     */
     @Override
     public void setText(CharSequence text, BufferType type) {
         if (isHideOnNull() && (text == null || text.toString().equalsIgnoreCase("0"))) {
@@ -185,7 +159,7 @@ public class BadgeView extends TextView {
         incrementBadgeCount(-decrement);
     }
 
-    /*
+    /**
      * Attach the BadgeView to the TabWidget
      *
      * @param target the TabWidget to attach the BadgeView
@@ -197,7 +171,7 @@ public class BadgeView extends TextView {
         setTargetView(tabView);
     }
 
-    /*
+    /**
      * Attach the BadgeView to the target view
      *
      * @param target the view to attach the BadgeView
@@ -237,7 +211,7 @@ public class BadgeView extends TextView {
 
     }
 
-    /*
+    /**
      * converts dip to px
      */
     private int dip2Px(float dip) {
