@@ -8,8 +8,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.luhuan.rxprovider.Permission;
 import com.luhuan.rxprovider.Resolution;
+import com.luhuan.rxprovider.RxListener;
 import com.luhuan.rxprovider.RxPicasso;
+import com.luhuan.rxprovider.RxToast;
 import com.luhuan.rxprovider.Screen;
 import com.luhuan.rxprovider.customview.banner.Banner;
 import com.luhuan.rxprovider.customview.banner.Transformer;
@@ -23,6 +26,9 @@ import com.luhuan.rxprovider.customview.recycler.XRecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.reactivex.annotations.NonNull;
+import io.reactivex.functions.Consumer;
+
 public class MainActivity extends Activity {
     XRecyclerView recyclerView;
     Banner banner;
@@ -35,6 +41,17 @@ public class MainActivity extends Activity {
         Log.d(TAG, "height: "+Screen.getScreenHeight(this));
         Log.d(TAG, "width-dp: "+ Resolution.pxToDp(this,Screen.getScreenWidth(this)));
         Log.d(TAG, "height-dp: "+ Resolution.pxToDp(this,Screen.getScreenHeight(this)));
+        RxToast.init(this.getApplicationContext());
+
+        RxListener.click(findViewById(R.id.click)).compose(Permission.getInstance(this).enSure(Permission.WRITE_EXTERNAL_STORAGE))
+                .subscribe(new Consumer<Boolean>() {
+                    @Override
+                    public void accept(@NonNull Boolean aBoolean) throws Exception {
+                        if (aBoolean){
+                            RxToast.show("权限拿到了");
+                        }
+                    }
+                });
         RxPicasso.init(this,R.mipmap.ic_launcher);
         banner= (Banner) findViewById(R.id.banner);
         List<String> list=new ArrayList<>();

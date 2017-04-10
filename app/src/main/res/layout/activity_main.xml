@@ -5,6 +5,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.luhuan.provider.MainActivity">
+    <Button android:id="@+id/click"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="点击"/>
     <com.luhuan.rxprovider.customview.banner.Banner
         android:id="@+id/banner"
         android:layout_width="match_parent"
