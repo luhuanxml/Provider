@@ -3,6 +3,7 @@ package com.luhuan.provider;
 import android.app.Activity;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.LinearSnapHelper;
 import android.support.v7.widget.RecyclerView;
@@ -29,7 +30,8 @@ public class Main2Activity extends Activity {
         setContentView(R.layout.activity_main2);
         recyclerView= (RecyclerView) findViewById(R.id.horizontal);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
-        recyclerView.setLayoutManager(linearLayoutManager);
+        GridLayoutManager gridLayoutManager=new GridLayoutManager(Main2Activity.this,1,LinearLayoutManager.HORIZONTAL,false);
+        recyclerView.setLayoutManager(gridLayoutManager);
         ItemDec itemDec=new ItemDec(20);
         list.add(R.mipmap.img01);
         list.add(R.mipmap.img02);
