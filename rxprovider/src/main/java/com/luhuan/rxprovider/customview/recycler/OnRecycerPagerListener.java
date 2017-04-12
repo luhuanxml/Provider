@@ -6,7 +6,7 @@ import android.support.v7.widget.RecyclerView;
 
 /**
  * Created by 鲁欢 on 2017/4/12 0012.
- * horizontal slide like viewpager ,listen the center item position
+ * horizontal slide like viewpager ,listen the center item position or -1
  */
 
 public abstract class OnRecycerPagerListener extends RecyclerView.OnScrollListener {
