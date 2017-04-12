@@ -35,6 +35,8 @@
 ### ParamsProvider 将map集合转换成&key=value形式字符串。用于webview的url拼接
 ### Screen 获取屏幕宽和高
 ### OnRecycerPagerListener 做recyclerView横向滑动的时候当前显示的item的position
+### >RecyclerPagerHelper 或者你也可以直接使用帮助类进行直接设置。
+
 ### DownLoadFile  基于retrofit下载图片文件的封装类
 
 ### 加入了一些三方控件 badge  banner circle  flowLayout  xrecyclerview
