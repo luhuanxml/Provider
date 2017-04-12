@@ -1,6 +1,5 @@
 package com.luhuan.rxprovider.customview.recycler;
 
-import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -19,8 +18,14 @@ public abstract class OnRecycerPagerListener extends RecyclerView.OnScrollListen
     @Override
     public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
         super.onScrolled(recyclerView, dx, dy);
-        onCenterItem(linearLayoutManager.findLastCompletelyVisibleItemPosition());
+        int postion=linearLayoutManager.findLastCompletelyVisibleItemPosition();
+        if (postion > -1) {
+            onCenterItem(postion);
+        }
     }
 
+    /**
+     * @param position the position of visible item
+     */
     public abstract void onCenterItem(int position);
 }
