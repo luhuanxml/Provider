@@ -9,15 +9,14 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SnapHelper;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 
+import com.luhuan.rxprovider.RxToast;
+import com.luhuan.rxprovider.customview.recycler.OnRecycerPagerListener;
 import com.luhuan.rxprovider.customview.recycler.RxAdapter;
 import com.luhuan.rxprovider.customview.recycler.RxViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
 
 public class Main2Activity extends Activity {
     RecyclerView recyclerView;
@@ -25,6 +24,7 @@ public class Main2Activity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        RxToast.init(this);
         setContentView(R.layout.activity_main2);
         recyclerView= (RecyclerView) findViewById(R.id.horizontal);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
@@ -50,6 +50,12 @@ public class Main2Activity extends Activity {
         recyclerView.setAdapter(adapter);
         SnapHelper snapHelper=new LinearSnapHelper();
         snapHelper.attachToRecyclerView(recyclerView);
+        recyclerView.addOnScrollListener(new OnRecycerPagerListener(linearLayoutManager) {
+            @Override
+            public void onCenterItem(int position) {
+                RxToast.show(position+"");
+            }
+        });
    }
 
    private class ItemDec extends RecyclerView.ItemDecoration{
