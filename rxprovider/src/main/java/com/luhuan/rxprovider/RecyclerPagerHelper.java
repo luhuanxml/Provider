@@ -14,6 +14,10 @@ public class RecyclerPagerHelper {
     private static volatile RecyclerPagerHelper intance;
     private LinearLayoutManager linearLayoutManager;
 
+    private RecyclerPagerHelper(){
+
+    }
+
     public static RecyclerPagerHelper getIntance() {
         if (intance == null) {
             synchronized (RecyclerPagerHelper.class) {
