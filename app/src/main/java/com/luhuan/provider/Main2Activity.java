@@ -10,6 +10,7 @@ import android.support.v7.widget.SnapHelper;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.luhuan.rxprovider.RecyclerPagerHelper;
 import com.luhuan.rxprovider.RxToast;
 import com.luhuan.rxprovider.customview.recycler.OnRecycerPagerListener;
 import com.luhuan.rxprovider.customview.recycler.RxAdapter;
@@ -48,14 +49,7 @@ public class Main2Activity extends Activity {
         };
         recyclerView.addItemDecoration(itemDec);
         recyclerView.setAdapter(adapter);
-        SnapHelper snapHelper=new LinearSnapHelper();
-        snapHelper.attachToRecyclerView(recyclerView);
-        recyclerView.addOnScrollListener(new OnRecycerPagerListener(linearLayoutManager) {
-            @Override
-            public void onCenterItem(int position) {
-                RxToast.show(position+"");
-            }
-        });
+        RecyclerPagerHelper.getIntance().getPosition(recyclerView,null);
    }
 
    private class ItemDec extends RecyclerView.ItemDecoration{
