@@ -1,6 +1,7 @@
 package com.luhuan.provider;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.util.Log;
@@ -49,6 +50,7 @@ public class MainActivity extends Activity {
                     public void accept(@NonNull Boolean aBoolean) throws Exception {
                         if (aBoolean){
                             RxToast.show("权限拿到了");
+                            startActivity(new Intent(MainActivity.this,Main2Activity.class));
                         }
                     }
                 });

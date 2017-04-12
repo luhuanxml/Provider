@@ -18,16 +18,16 @@ public class RxPicasso {
     private static Context mContext;
     private static Integer mdrawableId;
 
-    public static void init(Context context, @DrawableRes Integer drawableId){
+    public static void init(Context context, @DrawableRes Integer errorId){
         mContext=context;
-        mdrawableId=drawableId;
+        mdrawableId=errorId;
     }
 
-    public static RequestCreator load(@NonNull String url, @DrawableRes Integer drawableId){
+    public static RequestCreator load(@NonNull String url, @DrawableRes Integer errorId){
         if (mContext == null) {
             throw new NullPointerException("picasso的上下文为空");
         }else {
-            return Picasso.with(mContext).load(url).placeholder(drawableId).error(drawableId);
+            return Picasso.with(mContext).load(url).placeholder(errorId).error(errorId);
         }
     }
 
@@ -36,6 +36,14 @@ public class RxPicasso {
             throw new NullPointerException("picasso的上下文为空");
         }else {
             return Picasso.with(mContext).load(url).placeholder(mdrawableId).error(mdrawableId);
+        }
+    }
+
+    public static RequestCreator load(@DrawableRes Integer drawableId){
+        if (mContext == null) {
+            throw new NullPointerException("picasso的上下文为空");
+        }else {
+            return Picasso.with(mContext).load(drawableId).placeholder(mdrawableId).error(mdrawableId);
         }
     }
 }
