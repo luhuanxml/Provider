@@ -34,6 +34,8 @@
 ### RxPicasso  统一加载中和加载失败时替代的图片，返回RequestCreator对象
 ### ParamsProvider 将map集合转换成&key=value形式字符串。用于webview的url拼接
 ### Screen 获取屏幕宽和高
+### OnRecycerPagerListener 做recyclerView横向滑动的时候当前显示的item的position
+### DownLoadFile  基于retrofit下载图片文件的封装类
 
 ### 加入了一些三方控件 badge  banner circle  flowLayout  xrecyclerview
 
