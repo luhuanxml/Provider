@@ -36,10 +36,10 @@ public abstract class RxAdapter<T> extends RecyclerView.Adapter<RxViewHolder<T>>
 
     @Override
     public RxViewHolder<T> onCreateViewHolder(ViewGroup parent, int viewType) {
-        return getHolder();
+        return getHolder(parent);
     }
 
-    public abstract RxViewHolder<T> getHolder() ;
+    public abstract RxViewHolder<T> getHolder(ViewGroup parent) ;
 
     @Override
     public void onBindViewHolder(RxViewHolder<T> holder, final int position) {
