@@ -11,6 +11,7 @@ import java.util.List;
 
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Consumer;
+import io.reactivex.functions.Predicate;
 
 /**
  * Created by luhuan on 2017/3/21.
@@ -47,14 +48,16 @@ public abstract class RxAdapter<T> extends RecyclerView.Adapter<RxViewHolder<T>>
     public void onBindViewHolder(RxViewHolder<T> holder, final int position) {
         holder.setData(list.get(position));
         RxListener.click(holder.itemView)
+                .filter(new Predicate<Object>() {
+                    @Override
+                    public boolean test(@NonNull Object o) throws Exception {
+                        return onItemClickListener != null;
+                    }
+                })
                 .subscribe(new Consumer<Object>() {
                     @Override
                     public void accept(@NonNull Object o) throws Exception {
-                        if (onItemClickListener == null) {
-                            Log.d(TAG, "OnItemClickLitener==null,您没有设置监听");
-                        } else {
-                            onItemClickListener.onItemClick(position, list.get(position));
-                        }
+                        onItemClickListener.onItemClick(position, list.get(position));
                     }
                 });
     }

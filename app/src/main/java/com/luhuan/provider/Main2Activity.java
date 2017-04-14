@@ -46,13 +46,20 @@ public class Main2Activity extends Activity {
         RxAdapter<Integer> adapter=new RxAdapter<Integer>(list,this) {
             @Override
             public RxViewHolder<Integer> getHolder(ViewGroup parent) {
-                View view=View.inflate(Main2Activity.this,R.layout.item2_adpter,parent);
+                View view=View.inflate(Main2Activity.this,R.layout.item2_adpter,null);
                 return new ViewHoder(view);
             }
         };
         recyclerView.addItemDecoration(itemDec);
         recyclerView.setAdapter(adapter);
         RecyclerPagerHelper.getIntance().getPosition(recyclerView,null);
+        adapter.setOnItemClickListener(new RxAdapter.OnItemClickLitener<Integer>() {
+            @Override
+            public void onItemClick(int position, Integer integer) {
+                RxToast.show(position+"");
+            }
+        });
+
    }
 
    private class ItemDec extends RecyclerView.ItemDecoration{
