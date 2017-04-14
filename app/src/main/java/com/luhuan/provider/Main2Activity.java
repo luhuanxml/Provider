@@ -9,6 +9,7 @@ import android.support.v7.widget.LinearSnapHelper;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SnapHelper;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.luhuan.rxprovider.RecyclerPagerHelper;
@@ -44,8 +45,8 @@ public class Main2Activity extends Activity {
         list.add(R.mipmap.img09);
         RxAdapter<Integer> adapter=new RxAdapter<Integer>(list,this) {
             @Override
-            public RxViewHolder<Integer> getHolder() {
-                View view=View.inflate(Main2Activity.this,R.layout.item2_adpter,null);
+            public RxViewHolder<Integer> getHolder(ViewGroup parent) {
+                View view=View.inflate(Main2Activity.this,R.layout.item2_adpter,parent);
                 return new ViewHoder(view);
             }
         };

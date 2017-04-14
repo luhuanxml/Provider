@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -72,7 +73,7 @@ public class MainActivity extends Activity {
 
         RxAdapter<String> adapter=new RxAdapter<String>(ss,MainActivity.this) {
             @Override
-            public RxViewHolder<String> getHolder() {
+            public RxViewHolder<String> getHolder(ViewGroup parent) {
                 TextView textView=new TextView(MainActivity.this);
                 return new ViewHoder(textView);
             }
