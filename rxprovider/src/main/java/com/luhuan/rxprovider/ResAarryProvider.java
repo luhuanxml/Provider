@@ -6,12 +6,31 @@ import android.content.res.TypedArray;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import io.reactivex.Observable;
+
 /**
  * Created by 鲁欢 on 2017/4/14 0014.
  * get res/array  一维数组
  */
 
 public class ResAarryProvider {
+
+    /**
+     * 获取图片数组资源 支持Rxjava2
+     * 使用zip 整合返回的Observable.fromIterable()
+     */
+    public static Observable<Integer> getDrawableObservable(Context context, int drawablesRes){
+        return Observable.fromIterable(getDrawables(context,drawablesRes));
+    }
+
+    /**
+     * 获取string数组资源 支持Rxjava2
+     * 使用zip 整合返回的Observable.fromIterable()
+     */
+    public static Observable<String> getStringObservable(Context context, int drawablesRes){
+        return Observable.fromIterable(getStrings(context,drawablesRes));
+    }
+
     /**
      * 获取图片资源集合
      * @param context 上下文
