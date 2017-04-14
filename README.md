@@ -36,6 +36,7 @@
 ### Screen 获取屏幕宽和高
 ### OnRecycerPagerListener 做recyclerView横向滑动的时候当前显示的item的position 继承于addOnScrollListener
 > RecyclerPagerHelper 或者你也可以直接使用帮助类进行直接设置。
+### ResAarryProvider 获得res/array (图片和字符串资源)  只支持到一维数组
 
 ### DownLoadFile  基于retrofit下载图片文件的封装类
 
