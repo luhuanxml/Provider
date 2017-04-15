@@ -1,5 +1,7 @@
 package com.luhuan.provider;
 
+import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -79,7 +81,7 @@ public class MainActivity extends Activity {
             }
         };
         GridLayoutManager manager=new GridLayoutManager(MainActivity.this,1);
-        ImageView imageView=new ImageView(this);
+        final ImageView imageView=new ImageView(this);
         imageView.setImageResource(R.mipmap.ic_launcher);
         recyclerView.addHeaderView(imageView);
         recyclerView.setLayoutManager(manager);
@@ -88,6 +90,16 @@ public class MainActivity extends Activity {
         recyclerView.setLoadingMoreEnabled(true);
         recyclerView.setRefreshHeader(new ArrowRefreshHeader(this,true));
         recyclerView.setLoadingMoreProgressStyle(ProgressStyle.BallSpinFadeLoader);
+        RxListener.click(imageView).subscribe(new Consumer<Object>() {
+            @Override
+            public void accept(@NonNull Object o) throws Exception {
+                /**动画组合**/
+                PropertyValuesHolder objectAnimatorScaleX = PropertyValuesHolder.ofFloat("scaleX", 0f, 1f);
+                PropertyValuesHolder objectAnimatorScaleY = PropertyValuesHolder.ofFloat("scaleY", 0f, 1f);
+                /**同时播放两个动画**/
+                ObjectAnimator.ofPropertyValuesHolder(imageView, objectAnimatorScaleX, objectAnimatorScaleY).setDuration(3000).start();
+            }
+        });
         adapter.setOnItemClickListener(new RxAdapter.OnItemClickLitener<String>() {
             @Override
             public void onItemClick(int position, String s) {

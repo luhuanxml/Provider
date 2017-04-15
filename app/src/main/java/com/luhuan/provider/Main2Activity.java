@@ -3,18 +3,17 @@ package com.luhuan.provider;
 import android.app.Activity;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.LinearSnapHelper;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SnapHelper;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.luhuan.rxprovider.RecyclerPagerHelper;
+import com.luhuan.rxprovider.RxSnackBar;
 import com.luhuan.rxprovider.RxToast;
-import com.luhuan.rxprovider.customview.recycler.OnRecycerPagerListener;
 import com.luhuan.rxprovider.customview.recycler.RxAdapter;
 import com.luhuan.rxprovider.customview.recycler.RxViewHolder;
 
@@ -23,6 +22,7 @@ import java.util.List;
 
 public class Main2Activity extends Activity {
     RecyclerView recyclerView;
+    CoordinatorLayout main2_parent;
     List<Integer> list=new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +30,7 @@ public class Main2Activity extends Activity {
         RxToast.init(this);
         setContentView(R.layout.activity_main2);
         recyclerView= (RecyclerView) findViewById(R.id.horizontal);
+        main2_parent= (CoordinatorLayout) findViewById(R.id.main2_parent);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
         GridLayoutManager gridLayoutManager=new GridLayoutManager(Main2Activity.this,1,LinearLayoutManager.HORIZONTAL,false);
         recyclerView.setLayoutManager(gridLayoutManager);
@@ -56,7 +57,8 @@ public class Main2Activity extends Activity {
         adapter.setOnItemClickListener(new RxAdapter.OnItemClickLitener<Integer>() {
             @Override
             public void onItemClick(int position, Integer integer) {
-                RxToast.show(position+"");
+              //  RxToast.show(position+"");
+                RxSnackBar.showLong(main2_parent,"snackbar弹出来hthtttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttetwh啦");
             }
         });
 
