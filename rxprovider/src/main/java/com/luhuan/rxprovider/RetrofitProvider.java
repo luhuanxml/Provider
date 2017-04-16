@@ -19,30 +19,32 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 public class RetrofitProvider {
     private static final String TAG = "RetrofitProvider";
     private static String ENDPOINT;
-    private RetrofitProvider(){
-        
+
+    private RetrofitProvider() {
+
     }
 
-    public static Retrofit getInstance(@NonNull String baseUrl){
-        ENDPOINT=baseUrl;
+    public static Retrofit getInstance(@NonNull String baseUrl) {
+        ENDPOINT = baseUrl;
         return SingletonHolder.INSTANCE;
     }
-    
-    private static class SingletonHolder{
-        private static final Retrofit INSTANCE =create();
+
+    private static class SingletonHolder {
+        private static final Retrofit INSTANCE = create();
 
         private static Retrofit create() {
-            HttpLoggingInterceptor loggingInterceptor=new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
-                @Override
-                public void log(String message) {
-                    Log.d(TAG, "Retrofit: "+message);
-                }
-            });
+            HttpLoggingInterceptor loggingInterceptor =
+                    new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
+                        @Override
+                        public void log(String message) {
+                            Log.d(TAG, message);
+                        }
+                    });
             loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-            OkHttpClient.Builder builder=new OkHttpClient.Builder();
+            OkHttpClient.Builder builder = new OkHttpClient.Builder();
             builder.writeTimeout(10, TimeUnit.SECONDS);
-            builder.connectTimeout(10,TimeUnit.SECONDS);
-            builder.readTimeout(10,TimeUnit.SECONDS);
+            builder.connectTimeout(10, TimeUnit.SECONDS);
+            builder.readTimeout(10, TimeUnit.SECONDS);
             builder.addInterceptor(loggingInterceptor);
             return new Retrofit.Builder().baseUrl(ENDPOINT)
                     .client(builder.build())
