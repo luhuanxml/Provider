@@ -1,13 +1,13 @@
 package com.luhuan.rxprovider;
 
 import android.app.Activity;
+import android.support.annotation.NonNull;
 
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
 import io.reactivex.ObservableTransformer;
-import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Predicate;
 
 /**

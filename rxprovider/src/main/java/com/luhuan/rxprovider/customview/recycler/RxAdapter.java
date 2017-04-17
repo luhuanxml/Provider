@@ -1,6 +1,7 @@
 package com.luhuan.rxprovider.customview.recycler;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.ViewGroup;
@@ -9,7 +10,6 @@ import com.luhuan.rxprovider.RxListener;
 
 import java.util.List;
 
-import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Predicate;
 
