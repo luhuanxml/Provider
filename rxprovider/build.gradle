@@ -33,6 +33,7 @@ dependencies {
     compile 'com.jakewharton.rxbinding2:rxbinding:2.0.0'
     compile 'com.google.code.gson:gson:2.8.0'
     compile 'com.squareup.okhttp3:okhttp:3.6.0'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.6.0'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.3@aar'
     compile 'com.android.support:recyclerview-v7:25.3.1'
