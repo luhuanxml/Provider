@@ -32,14 +32,60 @@ import java.util.List;
 
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Consumer;
+import timber.log.Timber;
+
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
 
 public class MainActivity extends Activity {
     XRecyclerView recyclerView;
     Banner banner;
     private static final String TAG = "MainActivity";
+    /** Not a real crash reporting library! */
+    public static final class FakeCrashLibrary {
+        public static void log(int priority, String tag, String message) {
+            // TODO add log entry to circular buffer.
+        }
+
+        public static void logWarning(Throwable t) {
+            // TODO report non-fatal warning.
+        }
+
+        public static void logError(Throwable t) {
+            // TODO report non-fatal error.
+        }
+
+        private FakeCrashLibrary() {
+            throw new AssertionError("No instances.");
+        }
+    }
+
+    /** A tree which logs important information for crash reporting. */
+    private static class CrashReportingTree extends Timber.Tree {
+        @Override protected void log(int priority, String tag, String message, Throwable t) {
+            if (priority == Log.VERBOSE || priority == Log.DEBUG) {
+                return;
+            }
+
+            FakeCrashLibrary.log(priority, tag, message);
+
+            if (t != null) {
+                if (priority == Log.ERROR) {
+                    FakeCrashLibrary.logError(t);
+                } else if (priority == Log.WARN) {
+                    FakeCrashLibrary.logWarning(t);
+                }
+            }
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (BuildConfig.DEBUG) {
+            Timber.plant(new Timber.DebugTree());
+        }else {
+            Timber.plant(new CrashReportingTree());
+        }
         setContentView(R.layout.activity_main);
         Log.d(TAG, "width: "+ Screen.getScreenWidth(this));
         Log.d(TAG, "height: "+Screen.getScreenHeight(this));
@@ -52,8 +98,19 @@ public class MainActivity extends Activity {
                     @Override
                     public void accept(@NonNull Boolean aBoolean) throws Exception {
                         if (aBoolean){
-                            RxToast.show("权限拿到了");
-                            startActivity(new Intent(MainActivity.this,Main2Activity.class));
+                           RxToast.show("权限拿到了");
+                            Timber.tag(TAG).d(TAG);
+                            Timber.d(new Throwable("异常"),"方法走了1");
+                            Timber.d("方法走了2");
+                            Timber.d("方法走了3");
+                            Timber.d("方法走了4");
+                            Timber.d("方法走了5");
+                            Timber.d("方法走了6");
+                            Timber.d("方法走了7");
+                            Timber.d("方法走了8");
+                            Timber.d("方法走了9");
+                            Timber.e("方法走了9");
+                       //     startActivity(new Intent(MainActivity.this,Main2Activity.class));
                         }
                     }
                 });
