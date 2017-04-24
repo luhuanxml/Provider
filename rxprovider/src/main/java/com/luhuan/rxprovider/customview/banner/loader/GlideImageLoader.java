@@ -3,7 +3,7 @@ package com.luhuan.rxprovider.customview.banner.loader;
 import android.content.Context;
 import android.widget.ImageView;
 
-import com.luhuan.rxprovider.RxPicasso;
+import com.luhuan.rxprovider.RxGlide;
 
 /**
  * Created by Administrator on 2017/3/10 0010.
@@ -21,10 +21,10 @@ public class GlideImageLoader extends ImageLoader {
          */
         if (path instanceof Integer) {
             //Picasso 加载图片简单用法
-            RxPicasso.load((Integer) path).into(imageView);
+            RxGlide.load((Integer) path).into(imageView);
         }else if (path instanceof String){
             //Picasso 加载图片简单用法
-            RxPicasso.load((String) path).into(imageView);
+            RxGlide.load((String) path).into(imageView);
         }
 
     }

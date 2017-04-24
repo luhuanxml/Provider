@@ -3,7 +3,6 @@ package com.luhuan.provider;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.GridLayoutManager;
@@ -16,7 +15,7 @@ import android.widget.TextView;
 import com.luhuan.rxprovider.Permission;
 import com.luhuan.rxprovider.Resolution;
 import com.luhuan.rxprovider.RxListener;
-import com.luhuan.rxprovider.RxPicasso;
+import com.luhuan.rxprovider.RxGlide;
 import com.luhuan.rxprovider.RxToast;
 import com.luhuan.rxprovider.Screen;
 import com.luhuan.rxprovider.customview.banner.Banner;
@@ -112,7 +111,7 @@ public class MainActivity extends Activity {
                         }
                     }
                 });
-        RxPicasso.init(this,R.mipmap.ic_launcher);
+        RxGlide.init(this,R.mipmap.ic_launcher);
         banner= (Banner) findViewById(R.id.banner);
         List<String> list=new ArrayList<>();
         for (int i = 0; i < 3; i++) {
