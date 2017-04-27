@@ -31,7 +31,8 @@
 ### StringFormat 填充占位符的正确方式  整型 浮点  字符串
 ### StringUtil  字符串对比校验工具类
 ### Creator 反射泛型对象
-### RxPicasso  统一加载中和加载失败时替代的图片，返回RequestCreator对象
+### RxClide 统一加载图片，替代原来的picasso封装。
+> RxPicasso  统一加载中和加载失败时替代的图片，返回RequestCreator对象(1.0.8已经弃用)
 ### ParamsProvider 将map集合转换成&key=value形式字符串。用于webview的url拼接
 ### Screen 获取屏幕宽和高
 ### OnRecycerPagerListener 做recyclerView横向滑动的时候当前显示的item的position 继承于addOnScrollListener
